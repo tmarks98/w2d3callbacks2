@@ -17,9 +17,20 @@ console.log(result2);   // [ 'RUN!', 'FORREST!' ]
 *******************************************************************************/
 
 function myMap(array, cb) {
-    // Your code here
+    let arr = []
+    for(let i = 0; i < array.length; i++) {
+        let el = array[i];
+        let res = cb(el)
+        arr.push(res)
+         }
+         return arr;
 }
 
+
+let result2 = myMap(['run', 'Forrest'], function (el) {
+    return el.toUpperCase() + '!';
+});
+    console.log(result2);   // [ 'RUN!', 'FORREST!' ]
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
     module.exports = myMap;
