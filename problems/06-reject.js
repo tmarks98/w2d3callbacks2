@@ -7,23 +7,28 @@ callback.
 
 Note that that you cannot use the Array `map` or `filter` methods to solve this
 problem.
-
-Examples:
-
-let isEven = function(n) {
-    return n % 2 === 0;
-};
-console.log(reject([7, 8, 5, 6, 12, 11], isEven)); // [ 7, 5, 11 ]
-
-let hasA = function(s) {
-    return s.toLowerCase().includes('a');
-};
-console.log(reject(['breadth', 'GRAPH', 'depth', 'height'], hasA)); // [ 'depth', 'height' ]
 *******************************************************************************/
 
 function reject(array, cb) {
   // Your code here
+    let arr = []
+    for(let i = 0; i < array.length; i++) {
+      if(cb(array[i]) === false) {
+        arr.push(array[i]);
+      }
+    }
+    return arr;
 }
+
+let isEven = function(n) {
+  return n % 2 === 0;
+};
+console.log(reject([7, 8, 5, 6, 12, 11], isEven)); // [ 7, 5, 11 ]
+
+let hasA = function(s) {
+  return s.toLowerCase().includes('a');
+};
+console.log(reject(['breadth', 'GRAPH', 'depth', 'height'], hasA)); // [ 'depth', 'height' ]
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
